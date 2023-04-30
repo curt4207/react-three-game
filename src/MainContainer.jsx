@@ -1,13 +1,30 @@
 import React from 'react';
 import { Canvas } from "@react-three/fiber";
-import { Stars, OrbitControls } from "@react-three/drei";
+import { OrbitControls, Sphere, SpotLight } from "@react-three/drei";
+import AnimatedStars from "./AnimatedStars";
+import Planet1 from "./planet1";
+import { DirectionalLight, PointLight } from "three";
+
+
 
 const MainContainer = () => {
+
     return (
        <Canvas>
         <color attach="background" args={["black"]}/>
         <OrbitControls />
-        <Stars />
+        <AnimatedStars />
+    
+        <directionalLight />
+        <mesh 
+        visible
+         userData={{ hello: 'world' }} 
+        rotation={[ Math.PI / 2, 0, 0 ]}
+        >
+  <sphereGeometry args={[1, 34, 34]} />
+  <meshStandardMaterial color="hotpink" />
+</mesh>
+        <Planet1 />
        </Canvas>
     );
 }
