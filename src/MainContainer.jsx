@@ -1,16 +1,19 @@
 import React from 'react';
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Sphere, SpotLight } from "@react-three/drei";
+
+import { OrbitControls, Sphere, SpotLight, useHelper } from "@react-three/drei";
 import AnimatedStars from "./AnimatedStars";
 import Planet1 from "./planet1";
 import { DirectionalLight, PointLight } from "three";
-
+import { useRef } from "react";
+import * as THREE from "three"
 
 
 const MainContainer = () => {
+const directionalLightRef = useRef();
+useHelper(directionalLightRef, THREE.DirectionalLightHelper, 1 , "hotpink")
 
     return (
-       <Canvas>
+       <>
         <color attach="background" args={["black"]}/>
         <OrbitControls />
         <AnimatedStars />
@@ -25,7 +28,7 @@ const MainContainer = () => {
   <meshStandardMaterial color="hotpink" />
 </mesh>
         <Planet1 />
-       </Canvas>
+       </>
     );
 }
 
