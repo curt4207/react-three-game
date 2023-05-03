@@ -1,52 +1,31 @@
 import React from "react";
 
-import { OrbitControls,
-  //  Sphere,
-    // SpotLight,
-     useHelper
-     } from "@react-three/drei";
-import AnimatedStars from "./AnimatedStars";
-
+import AnimatedStars from "./components/AnimatedStars";
 
 import { useRef } from "react";
+
+// Imported three
 import * as THREE from "three";
 import { useTexture } from "@react-three/drei";
 
-const MainContainer = () => {
-    const directionalLightRef = useRef();
-    const directionalLightRefTwo = useRef();
-    const [earthTexture, planetNightMap] = useTexture(["/8k_earth_dayMap.jpg","/8k_earth_dayMap.jpg"])
-   
+// Imported Components
+import Earth from "./components/planets/Earth";
+import Sun from "./components/planets/Sun";
 
-  useHelper(directionalLightRef, THREE.DirectionalLightHelper, 1, "yellow");
-  useHelper(directionalLightRefTwo, THREE.DirectionalLightHelper, 1, "green");
+const MainContainer = () => {
+
+ 
 
   return (
     <>
+
       <color attach="background" args={["black"]} />
-      <OrbitControls />
+
       <AnimatedStars />
 
-      {/* NOTE: Lighting position x,y,z */}
-      <directionalLight
-        ref={directionalLightRef}
-        position={[0, 0, 10]}
-        intensity={1}
-      />
-      <directionalLight
-        ref={directionalLightRefTwo}
-        position={[0, 0, -10]}
-        intensity={0.5}
-      />
-
+     
       {/* NOTE: Planet */}
-      <mesh
-        visible
-        userData={{ hello: "world" }} 
-      >
-        <sphereGeometry args={[1, 34, 34]} />
-        <meshStandardMaterial  map={earthTexture} normalMap={planetNightMap} />
-      </mesh>
+      <Sun />
       
     </>
   );
