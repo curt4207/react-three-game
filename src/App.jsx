@@ -5,6 +5,7 @@ import { OrbitControls } from "@react-three/drei";
 function App() {
   return (
     <Canvas
+    style={{margin:"10px",maxWidth: "1800px", maxHeight: "800px"}}
       shadows
       camera={{
         fov: 85,

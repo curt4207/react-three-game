@@ -51,7 +51,7 @@ const Earth = ({ displacementScale }) => {
       </mesh>
 
      
-      {/* <ISS /> */}
+      <ISS />
       <Moon />
     </group>
   );
