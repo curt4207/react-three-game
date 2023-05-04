@@ -1,5 +1,6 @@
 import { React, useRef } from "react";
 
+
 // Imported Components
 import Moon from "./Moon";
 import ISS from "../spaceStation/ISS";
@@ -48,7 +49,9 @@ const Earth = ({ displacementScale }) => {
           displacementScale={displacementScale}
         />
       </mesh>
-      <ISS />
+
+     
+      {/* <ISS /> */}
       <Moon />
     </group>
   );
