@@ -41,7 +41,7 @@ const Sun = () => {
         position={[0, 0, 0]}
       >
       
-        <sphereGeometry args={[4.5, 45, 45]} />
+        <sphereGeometry args={[3.5, 45, 45]} />
         <meshPhongMaterial
           map={sunTexture}
           emissiveMap={sunTexture}
